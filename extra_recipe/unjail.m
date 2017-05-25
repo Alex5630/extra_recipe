@@ -187,7 +187,8 @@ unjail2(uint64_t surfacevt)
 	
 	system("(echo 'Loading LaunchDaemons...'; /bin/launchctl load /Library/LaunchDaemons/0.reload.plist)&");
 	
-	exit(0);
+	// This line prevent to load 0.reload.plist You don't need it because 0.reload.plist kills the backboardd.
+	//exit(0);
 	
 	return 123456789;
 }
