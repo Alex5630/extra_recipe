@@ -20,11 +20,7 @@ class ViewController: UIViewController {
 	func tryToJailbreakUntilSuccess() {
 		let result = jb_go()
 		attempts += 1
-		if result == 123456789 {
-			NSLog("Done.")
-			jb_button_label.isEnabled = false;
-			jb_button_label.setTitle("Jailbroken", for: UIControlState.disabled)
-		} else {
+		if result != 123456789 {
 			NSLog("Jailbreak failed. Starting attempt #" + String(attempts) + "...");
 			tryToJailbreakUntilSuccess()
 		}

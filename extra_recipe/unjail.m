@@ -181,14 +181,10 @@ unjail2(uint64_t surfacevt)
 	}
 	
 	dlclose(h);
-	
-	NSLog(@"Waiting for 3 seconds...");
-	sleep(3);
-	
+	NSLog(@"Waiting 5 seconds before loading LaunchDaemons...");
+	sleep(5);
 	system("(echo 'Loading LaunchDaemons...'; /bin/launchctl load /Library/LaunchDaemons/0.reload.plist)&");
-	
-	// This line prevent to load 0.reload.plist You don't need it because 0.reload.plist kills the backboardd.
-	//exit(0);
-	
+	sleep(2);
+	NSLog(@"Success!");
 	return 123456789;
 }
