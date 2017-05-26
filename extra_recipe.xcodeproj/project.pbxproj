@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		65AA262A1ED64C7400FDA2A9 /* reload in Resources */ = {isa = PBXBuildFile; fileRef = 65AA26291ED64C7400FDA2A9 /* reload */; };
-		65AA262C1ED65B6900FDA2A9 /* 0.reload.plist in Resources */ = {isa = PBXBuildFile; fileRef = 65AA262B1ED65B6900FDA2A9 /* 0.reload.plist */; };
 		B0E5165B1E39459300CE4C47 /* README in Resources */ = {isa = PBXBuildFile; fileRef = B0E5165A1E39459300CE4C47 /* README */; };
 		B0F37BC11E361EAE00179E85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F37BC01E361EAE00179E85 /* AppDelegate.swift */; };
 		B0F37BC31E361EAE00179E85 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F37BC21E361EAE00179E85 /* ViewController.swift */; };
@@ -23,6 +21,9 @@
 		B3CEC2511ECE1AEB00508B1A /* bootstrap.tar in Resources */ = {isa = PBXBuildFile; fileRef = B3CEC2501ECE1AEB00508B1A /* bootstrap.tar */; };
 		B3CEC2551ECE1B0600508B1A /* tar in Resources */ = {isa = PBXBuildFile; fileRef = B3CEC2541ECE1B0600508B1A /* tar */; };
 		B3CEC25A1ECE321900508B1A /* mach_portal in CopyFiles */ = {isa = PBXBuildFile; fileRef = B3CEC2521ECE1AF800508B1A /* mach_portal */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		B3DDE7931ED72CAE0003660B /* 0.reload.plist in Resources */ = {isa = PBXBuildFile; fileRef = B3DDE7921ED72CAE0003660B /* 0.reload.plist */; };
+		B3DDE7951ED72CBA0003660B /* dropbear.plist in Resources */ = {isa = PBXBuildFile; fileRef = B3DDE7941ED72CBA0003660B /* dropbear.plist */; };
+		B3DDE7971ED72CC20003660B /* reload in Resources */ = {isa = PBXBuildFile; fileRef = B3DDE7961ED72CC20003660B /* reload */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -39,8 +40,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		65AA26291ED64C7400FDA2A9 /* reload */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = reload; sourceTree = "<group>"; };
-		65AA262B1ED65B6900FDA2A9 /* 0.reload.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = 0.reload.plist; sourceTree = "<group>"; };
 		B0E5165A1E39459300CE4C47 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		B0F37BBD1E361EAE00179E85 /* extra_recipe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = extra_recipe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0F37BC01E361EAE00179E85 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +58,9 @@
 		B3CEC2501ECE1AEB00508B1A /* bootstrap.tar */ = {isa = PBXFileReference; lastKnownFileType = archive.tar; path = bootstrap.tar; sourceTree = "<group>"; };
 		B3CEC2521ECE1AF800508B1A /* mach_portal */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = mach_portal; sourceTree = "<group>"; };
 		B3CEC2541ECE1B0600508B1A /* tar */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = tar; sourceTree = "<group>"; };
+		B3DDE7921ED72CAE0003660B /* 0.reload.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = 0.reload.plist; sourceTree = "<group>"; };
+		B3DDE7941ED72CBA0003660B /* dropbear.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dropbear.plist; sourceTree = "<group>"; };
+		B3DDE7961ED72CC20003660B /* reload */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = reload; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,8 +93,9 @@
 		B0F37BBF1E361EAE00179E85 /* extra_recipe */ = {
 			isa = PBXGroup;
 			children = (
-				65AA262B1ED65B6900FDA2A9 /* 0.reload.plist */,
-				65AA26291ED64C7400FDA2A9 /* reload */,
+				B3DDE7961ED72CC20003660B /* reload */,
+				B3DDE7941ED72CBA0003660B /* dropbear.plist */,
+				B3DDE7921ED72CAE0003660B /* 0.reload.plist */,
 				B0F37BC01E361EAE00179E85 /* AppDelegate.swift */,
 				B0F37BC21E361EAE00179E85 /* ViewController.swift */,
 				B0F37BC41E361EAE00179E85 /* Main.storyboard */,
@@ -177,13 +180,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				B337975F1ED35C6200FC0BEB /* launchctl in Resources */,
-				65AA262C1ED65B6900FDA2A9 /* 0.reload.plist in Resources */,
-				65AA262A1ED64C7400FDA2A9 /* reload in Resources */,
 				B0E5165B1E39459300CE4C47 /* README in Resources */,
 				B3CEC24F1ECE1ADD00508B1A /* def.plist in Resources */,
 				B0F37BCB1E361EAE00179E85 /* LaunchScreen.storyboard in Resources */,
+				B3DDE7931ED72CAE0003660B /* 0.reload.plist in Resources */,
 				B0F37BC81E361EAE00179E85 /* Assets.xcassets in Resources */,
 				B3CEC2511ECE1AEB00508B1A /* bootstrap.tar in Resources */,
+				B3DDE7971ED72CC20003660B /* reload in Resources */,
+				B3DDE7951ED72CBA0003660B /* dropbear.plist in Resources */,
 				B0F37BC61E361EAE00179E85 /* Main.storyboard in Resources */,
 				B3CEC2551ECE1B0600508B1A /* tar in Resources */,
 			);
@@ -344,7 +348,7 @@
 					"-pagezero_size",
 					0x16000,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.extra-recipe";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Alex5630.extra-recipe";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "extra_recipe/extra_recipe-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -370,7 +374,7 @@
 					"-pagezero_size",
 					0x16000,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.extra-recipe";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Alex5630.extra-recipe";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "extra_recipe/extra_recipe-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;

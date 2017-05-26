@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -21,28 +21,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GpS-ot-WKa">
-                                <rect key="frame" x="108" y="303" width="158" height="60"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B40-k4-XvV">
+                                <rect key="frame" x="108" y="289" width="158" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="158" id="f5s-Kz-2UL"/>
+                                    <constraint firstAttribute="height" constant="50" id="zKb-ox-LwJ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <state key="normal" title="Jailbreak"/>
                                 <connections>
-                                    <action selector="jb_button:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BDU-kx-wuf"/>
+                                    <action selector="jailbreak:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bTz-lW-XIk"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Substrate: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ezf-Xk-yZb">
+                                <rect key="frame" x="108" y="347" width="99" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="BW1-Fu-PeI"/>
+                                    <constraint firstAttribute="width" constant="99" id="EYg-wu-R0s"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yvm-TB-wdf">
+                                <rect key="frame" x="215" y="347" width="53" height="31"/>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="GpS-ot-WKa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wix-o7-VsU"/>
-                            <constraint firstItem="GpS-ot-WKa" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="yJ5-Aa-fsw"/>
+                            <constraint firstItem="yvm-TB-wdf" firstAttribute="bottom" secondItem="Ezf-Xk-yZb" secondAttribute="bottom" id="B1B-yY-8Wy"/>
+                            <constraint firstItem="Ezf-Xk-yZb" firstAttribute="leading" secondItem="B40-k4-XvV" secondAttribute="leading" id="KQp-bg-zZf"/>
+                            <constraint firstItem="yvm-TB-wdf" firstAttribute="leading" secondItem="Ezf-Xk-yZb" secondAttribute="trailing" constant="8" id="QUV-RJ-dbW"/>
+                            <constraint firstItem="yvm-TB-wdf" firstAttribute="leading" secondItem="Ezf-Xk-yZb" secondAttribute="trailing" constant="8" id="Scb-Bt-jGh"/>
+                            <constraint firstItem="yvm-TB-wdf" firstAttribute="top" secondItem="Ezf-Xk-yZb" secondAttribute="top" id="ard-gV-4QN"/>
+                            <constraint firstItem="yvm-TB-wdf" firstAttribute="top" secondItem="B40-k4-XvV" secondAttribute="bottom" constant="8" id="e2b-lK-ZGV"/>
+                            <constraint firstItem="Ezf-Xk-yZb" firstAttribute="top" secondItem="B40-k4-XvV" secondAttribute="bottom" constant="8" id="kk3-IX-dQ3"/>
+                            <constraint firstItem="B40-k4-XvV" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-19.5" id="l7o-66-FVo"/>
+                            <constraint firstItem="B40-k4-XvV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nnk-vG-lYG"/>
+                            <constraint firstItem="yvm-TB-wdf" firstAttribute="trailing" secondItem="B40-k4-XvV" secondAttribute="trailing" id="pD3-4Z-JFM"/>
+                            <constraint firstItem="yvm-TB-wdf" firstAttribute="top" secondItem="B40-k4-XvV" secondAttribute="bottom" constant="8" id="w7o-dg-aUK"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="jb_button_label" destination="GpS-ot-WKa" id="cU1-Mw-JR0"/>
+                        <outlet property="substrate" destination="yvm-TB-wdf" id="TMX-1V-8jW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="133.59999999999999" y="110.19490254872565"/>
         </scene>
     </scenes>
 </document>
