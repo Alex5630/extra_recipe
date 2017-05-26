@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B40-k4-XvV">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B40-k4-XvV" userLabel="Jailbreak Action">
                                 <rect key="frame" x="108" y="289" width="158" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="158" id="f5s-Kz-2UL"/>
@@ -30,7 +30,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <state key="normal" title="Jailbreak"/>
                                 <connections>
-                                    <action selector="jailbreak:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bTz-lW-XIk"/>
+                                    <action selector="jailbreakAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ov2-V3-sA5"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Substrate: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ezf-Xk-yZb">
