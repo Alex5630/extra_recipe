@@ -602,7 +602,7 @@ uint64_t prepare_kernel_rw() {
 	return kernel_base;
 }
 
-int jb_go(substrate) {
+int jb_go() {
 	uint64_t kernel_base = prepare_kernel_rw();
 #if 0
 	uint64_t val = rk64(kernel_base);
@@ -617,8 +617,8 @@ int jb_go(substrate) {
 	
 	return 42;
 #else
-	extern int unjail(bool);
-	return kernel_base ? unjail(substrate) : -1;
+	extern int unjail();
+	return kernel_base ? unjail() : -1;
 #endif
 }
 
@@ -801,7 +801,7 @@ kx5(uint64_t fptr, uint64_t arg1, uint64_t arg2, uint64_t arg3, uint64_t arg4, u
 #define CS_PLATFORM_BINARY	0x4000000	/* this is a platform binary */
 #define CS_PLATFORM_PATH	0x8000000	/* platform binary by the fact of path (osx only) */
 
-int unjail(bool substrate)
+int unjail()
 {
 	uint32_t our_pid = getpid();
 	uint64_t our_task = 0;
@@ -864,8 +864,8 @@ int unjail(bool substrate)
 	uint64_t val = kread_uint64(kernel_base);
 	printf("read from kernel memory: 0x%016llx\n", val);
 #else
-	extern int unjail2(uint64_t surfacevt, bool substrate);
-	rv = unjail2(surfacevt, substrate);
+	extern int unjail2(uint64_t surfacevt);
+	rv = unjail2(surfacevt);
 #endif
 	
 	kwrite_uint64(our_proc + offsetof_p_ucred, our_cred);

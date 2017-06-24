@@ -12,49 +12,55 @@ class ViewController: UIViewController {
 	
 	var attemptsCount = 1
 	
-	@IBOutlet weak var substrate: UISwitch!
-	@IBOutlet weak var generator: UISwitch!
+	@IBOutlet weak var daemons: UISwitch!
+	@IBOutlet weak var command: UISwitch!
 	
 	@IBAction func jailbreakAction(_ sender: Any) {
-		NSLog("Substrate will " + (substrate.isOn ? "be enabled." : "not be enabled."))
-		NSLog("Nonce generator will " + (generator.isOn ? "be set to " + UserDefaults.standard.string(forKey: "generatorValue")! : "not be set."))
+		NSLog("Daemons will " + (daemons.isOn ? "be loaded." : "not be loaded."))
+		NSLog("Custom command will " + (command.isOn ? "be run: \"" + UserDefaults.standard.string(forKey: "commandValue")! + "\"" : "not be run."))
 		NSLog("Starting jailbreak...")
 		tryToJailbreakUntilSuccess()
 	}
 	
-	@IBAction func generatorAction(_ sender: Any) {
+	@IBAction func daemonsAction(_ sender: Any) {
 		let defaults = UserDefaults.standard
-		defaults.set(generator.isOn, forKey: "generatorIsOn")
+		defaults.set(daemons.isOn, forKey: "loadDaemons")
 		defaults.synchronize()
-		if generator.isOn {
-			let alert = UIAlertController(title: "Set Nonce Generator", message: "", preferredStyle: .alert)
+	}
+	
+	@IBAction func commandAction(_ sender: Any) {
+		let defaults = UserDefaults.standard
+		defaults.set(command.isOn, forKey: "commandIsOn")
+		defaults.synchronize()
+		if command.isOn {
+			let alert = UIAlertController(title: "Set Custom Command", message: "Set a command to be run with root privileges upon successful jailbreak.", preferredStyle: .alert)
 			alert.addTextField { (textField) in
 				let defaults = UserDefaults.standard
-				textField.text = defaults.string(forKey: "generatorValue")
-				textField.placeholder = "Your Nonce Generator"
+				textField.text = defaults.string(forKey: "commandValue")
+				textField.placeholder = "Your Custom Command"
 			}
 			alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { [weak alert] (_) in
-				let generatorValue = alert?.textFields![0].text
+				let commandValue = alert?.textFields![0].text
 				let defaults = UserDefaults.standard
-				defaults.set(generatorValue, forKey: "generatorValue")
-				if generatorValue == "" {
-					self.generator.setOn(false, animated: true)
-					defaults.set(self.generator.isOn, forKey: "generatorIsOn")
+				defaults.set(commandValue, forKey: "commandValue")
+				if commandValue == "" {
+					self.command.setOn(false, animated: true)
+					defaults.set(self.command.isOn, forKey: "commandIsOn")
 				}
 				defaults.synchronize()
 			}))
 			alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { [weak alert] (_) in
-				self.generator.setOn(false, animated: true)
+				self.command.setOn(false, animated: true)
 				let defaults = UserDefaults.standard
-				defaults.set(self.generator.isOn, forKey: "generatorIsOn")
+				defaults.set(self.command.isOn, forKey: "commandIsOn")
 				defaults.synchronize()
 			}))
-			self.present(alert, animated: true, completion: nil)
+			present(alert, animated: true, completion: nil)
 		}
 	}
 	
 	func tryToJailbreakUntilSuccess() {
-		let result = jb_go(substrate.isOn)
+		let result = jb_go()
 		if result == 123456789 {
 			UIControl().sendAction(#selector(URLSessionTask.suspend), to: UIApplication.shared, for: nil)
 		} else if result == 987654321 {
@@ -71,7 +77,13 @@ class ViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		generator.isOn = UserDefaults.standard.bool(forKey: "generatorIsOn")
+		if UserDefaults.standard.string(forKey: "commandValue") == "" {
+			let defaults = UserDefaults.standard
+			defaults.set(false, forKey: "commandIsOn")
+			defaults.synchronize()
+		}
+		command.isOn = UserDefaults.standard.bool(forKey: "commandIsOn")
+		daemons.isOn = UserDefaults.standard.bool(forKey: "loadDaemons")
 	}
 	
 	override func didReceiveMemoryWarning() {

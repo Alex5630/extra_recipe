@@ -72,7 +72,7 @@ constget(int idx)
 }
 
 int
-unjail2(uint64_t surfacevt, bool substrate)
+unjail2(uint64_t surfacevt)
 {
 	void *h;
 	int rv;
@@ -195,14 +195,6 @@ unjail2(uint64_t surfacevt, bool substrate)
 				chown("/usr/libexec/reload", 0, 0);
 			}
 			{
-				NSString* jlaunchctl = [execpath stringByAppendingPathComponent:@"nvpatch"];
-				char* jl = [jlaunchctl UTF8String];
-				unlink("/usr/bin/nvpatch");
-				copyfile(jl, "/usr/bin/nvpatch", 0, COPYFILE_ALL);
-				chmod("/usr/bin/nvpatch", 0755);
-				chown("/usr/bin/nvpatch", 0, 0);
-			}
-			{
 				NSString* jlaunchctl = [execpath stringByAppendingPathComponent:@"0.reload.plist"];
 				char* jl = [jlaunchctl UTF8String];
 				unlink("/Library/LaunchDaemons/0.reload.plist");
@@ -228,17 +220,13 @@ unjail2(uint64_t surfacevt, bool substrate)
 	chmod("/private/var/mobile/Library", 0777);
 	chmod("/private/var/mobile/Library/Preferences", 0777);
 	system("rm -rf /var/MobileAsset/Assets/com_apple_MobileAsset_SoftwareUpdate; touch /var/MobileAsset/Assets/com_apple_MobileAsset_SoftwareUpdate; chmod 000 /var/MobileAsset/Assets/com_apple_MobileAsset_SoftwareUpdate; chown 0:0 /var/MobileAsset/Assets/com_apple_MobileAsset_SoftwareUpdate");
-	bool generatorIsOn = [[NSUserDefaults standardUserDefaults] boolForKey:@"generatorIsOn"];
-	if (generatorIsOn) {
-		NSString *generatorValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"generatorValue"];
-		NSString *nvramCommand = [NSString stringWithFormat:@"%@%@%@%@%@", @"/usr/bin/nvpatch com.apple.System.boot-nonce; /usr/sbin/nvram com.apple.System.boot-nonce=", generatorValue, @"; echo 'Successfully set nonce generator to ", generatorValue, @"'"];
-		system([nvramCommand UTF8String]);
-	} else {
-		NSLog(@"Deleting previous nonce generator...");
-		system("/usr/bin/nvpatch com.apple.System.boot-nonce; /usr/sbin/nvram -d com.apple.System.boot-nonce; echo 'Successfully deleted previous nonce generator.'");
+	if ([[NSUserDefaults standardUserDefaults] boolForKey:@"commandIsOn"]) {
+		NSString *commandValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"commandValue"];
+		NSLog(@"Running custom command: \"%@\"", commandValue);
+		system([commandValue UTF8String]);
 	}
 	int returnValue;
-	if (substrate) {
+	if ([[NSUserDefaults standardUserDefaults] boolForKey:@"loadDaemons"]) {
 		NSLog(@"Loading LaunchDaemons...");
 		system("/bin/launchctl load /Library/LaunchDaemons/0.reload.plist &");
 		returnValue = 123456789;

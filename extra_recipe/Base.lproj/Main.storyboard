@@ -33,7 +33,7 @@
                                     <action selector="jailbreakAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ov2-V3-sA5"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Substrate: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ezf-Xk-yZb">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daemons:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ezf-Xk-yZb">
                                 <rect key="frame" x="108" y="318" width="99" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="BW1-Fu-PeI"/>
@@ -43,7 +43,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Generator: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H1s-31-ylZ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Command:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H1s-31-ylZ">
                                 <rect key="frame" x="108" y="357" width="99" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="99" id="bb3-9U-Pxj"/>
@@ -55,11 +55,14 @@
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yvm-TB-wdf">
                                 <rect key="frame" x="215" y="318" width="53" height="31"/>
+                                <connections>
+                                    <action selector="daemonsAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="QJs-3w-XST"/>
+                                </connections>
                             </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O4N-Ss-obh">
                                 <rect key="frame" x="215" y="357" width="53" height="31"/>
                                 <connections>
-                                    <action selector="generatorAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="mSt-RH-wiW"/>
+                                    <action selector="commandAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="Yxv-bH-bp6"/>
                                 </connections>
                             </switch>
                         </subviews>
@@ -92,8 +95,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="generator" destination="O4N-Ss-obh" id="hI6-3h-P1z"/>
-                        <outlet property="substrate" destination="yvm-TB-wdf" id="TMX-1V-8jW"/>
+                        <outlet property="command" destination="O4N-Ss-obh" id="ucp-22-Srp"/>
+                        <outlet property="daemons" destination="yvm-TB-wdf" id="6fW-gJ-iup"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

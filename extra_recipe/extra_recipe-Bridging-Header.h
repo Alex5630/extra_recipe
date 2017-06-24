@@ -3,4 +3,4 @@
 //
 #include <stdbool.h> 
 
-int jb_go(bool substrate);
+int jb_go();
