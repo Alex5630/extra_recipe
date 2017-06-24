@@ -10,3 +10,4 @@ Features I've Added:
 * Jailbreak button
 * Cydia Substrate switch
 * Automatically retry upon failure
+* Set custom nonce generator to NVRAM

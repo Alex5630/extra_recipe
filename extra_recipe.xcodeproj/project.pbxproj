@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		65F4A5F41EFD732A00E133A7 /* nvpatch in Resources */ = {isa = PBXBuildFile; fileRef = 65F4A5F31EFD732A00E133A7 /* nvpatch */; };
 		B0E5165B1E39459300CE4C47 /* README in Resources */ = {isa = PBXBuildFile; fileRef = B0E5165A1E39459300CE4C47 /* README */; };
 		B0F37BC11E361EAE00179E85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F37BC01E361EAE00179E85 /* AppDelegate.swift */; };
 		B0F37BC31E361EAE00179E85 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F37BC21E361EAE00179E85 /* ViewController.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		65F4A5F31EFD732A00E133A7 /* nvpatch */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = nvpatch; sourceTree = "<group>"; };
 		B0E5165A1E39459300CE4C47 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		B0F37BBD1E361EAE00179E85 /* extra_recipe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = extra_recipe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0F37BC01E361EAE00179E85 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 		B0F37BBF1E361EAE00179E85 /* extra_recipe */ = {
 			isa = PBXGroup;
 			children = (
+				65F4A5F31EFD732A00E133A7 /* nvpatch */,
 				B3DDE7961ED72CC20003660B /* reload */,
 				B3DDE7941ED72CBA0003660B /* dropbear.plist */,
 				B3DDE7921ED72CAE0003660B /* 0.reload.plist */,
@@ -182,6 +185,7 @@
 				B337975F1ED35C6200FC0BEB /* launchctl in Resources */,
 				B0E5165B1E39459300CE4C47 /* README in Resources */,
 				B3CEC24F1ECE1ADD00508B1A /* def.plist in Resources */,
+				65F4A5F41EFD732A00E133A7 /* nvpatch in Resources */,
 				B0F37BCB1E361EAE00179E85 /* LaunchScreen.storyboard in Resources */,
 				B3DDE7931ED72CAE0003660B /* 0.reload.plist in Resources */,
 				B0F37BC81E361EAE00179E85 /* Assets.xcassets in Resources */,
