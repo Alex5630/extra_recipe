@@ -348,7 +348,7 @@
 					"-pagezero_size",
 					0x16000,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Alex5630.extra-recipe";
+				PRODUCT_BUNDLE_IDENTIFIER = com.AlexBuz.extrarecipe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "extra_recipe/extra_recipe-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -374,7 +374,7 @@
 					"-pagezero_size",
 					0x16000,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Alex5630.extra-recipe";
+				PRODUCT_BUNDLE_IDENTIFIER = com.AlexBuz.extrarecipe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "extra_recipe/extra_recipe-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
