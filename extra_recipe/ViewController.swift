@@ -60,18 +60,18 @@ class ViewController: UIViewController {
 	}
 	
 	func tryToJailbreakUntilSuccess() {
-		let result = jb_go()
-		if result == 123456789 {
-			UIControl().sendAction(#selector(URLSessionTask.suspend), to: UIApplication.shared, for: nil)
-		} else if result == 987654321 {
-			UIControl().sendAction(#selector(URLSessionTask.suspend), to: UIApplication.shared, for: nil)
-			DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.25) {
-				exit(0)
-			}
-		} else {
-			attemptsCount += 1
-			NSLog("Jailbreak failed. Starting attempt #" + String(attemptsCount) + "...")
-			tryToJailbreakUntilSuccess()
+		switch jb_go() {
+			case 123456789:
+				UIControl().sendAction(#selector(URLSessionTask.suspend), to: UIApplication.shared, for: nil)
+			case 987654321:
+				UIControl().sendAction(#selector(URLSessionTask.suspend), to: UIApplication.shared, for: nil)
+				DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.25) {
+					exit(0)
+				}
+			default:
+				attemptsCount += 1
+				NSLog("Jailbreak failed. Starting attempt #" + String(attemptsCount) + "...")
+				tryToJailbreakUntilSuccess()
 		}
 	}
 	
